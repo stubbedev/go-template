@@ -24,6 +24,18 @@ just check
 | `just build` | Compile-check every package |
 | `just fmt` | Format every Go source in place |
 
+Every dev tool (Go toolchain pinned to the version go.mod declares, gopls,
+golangci-lint, delve, just, git, gh) comes from the flake: `direnv allow`
+on entry, or `nix develop` explicitly. `GOTOOLCHAIN=local` keeps the compiler
+from downloading itself.
+
+## Nix
+
+- `nix build` builds the package (`package.nix` scaffold; add a `vendorHash`
+  once go.mod grows dependencies)
+- `nix run` runs it
+- `nix fmt` formats the nix files with alejandra
+
 ## CI
 
 `.github/workflows/security.yml` runs CodeQL (Go and GitHub Actions), Grype and
