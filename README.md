@@ -31,7 +31,8 @@ from downloading itself.
 
 ## Nix
 
-- `nix build` builds the package (`package.nix` scaffold; add a `vendorHash`
+- `nix build` builds the package (`nix/package.nix`; the dev shell is
+  `nix/shell.nix`, both imported by `flake.nix`; add a `vendorHash`
   once go.mod grows dependencies)
 - `nix run` runs it
 - `nix fmt` formats the nix files with alejandra
